@@ -2,6 +2,7 @@ package com.vinaris.reservation_system;
 
 import jakarta.persistence.*;
 
+import java.time.Instant;
 import java.time.LocalDate;
 
 @Table(name = "reservations")
@@ -19,6 +20,7 @@ public class ReservationEntity {
     private LocalDate startDate;
     @Column(name = "end_date")
     private LocalDate endDate;
+    @Enumerated(EnumType.STRING)
     @Column(name= "status")
     private ReservationStatus status;
 
@@ -54,7 +56,7 @@ public class ReservationEntity {
         this.startDate = startDate;
     }
 
-    public LocalDate getEndDate() {
+    public Instant getEndDate() {
         return endDate;
     }
 
